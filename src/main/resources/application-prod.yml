@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=validus;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: HelloWorld2025
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  flyway:
+    enabled: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: <ton_issuer_oidc>
+          jwk-set-uri: <ton_issuer_oidc>/.well-known/jwks.json
+
+security:
+  mock: false
+
+ai:
+  base-url: https://ai.validus.local/ai
+  api-key: ${AI_API_KEY:changeme}
+  timeout-ms: 5000
